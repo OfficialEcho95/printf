@@ -83,6 +83,7 @@ int write_int(buffer *buf, va_list v_ls)
 		buf_inc(buf);
 		unum = -num;
 	}
+
 	buf_wr(buf);
 	append_num(buf, unum);
 	return (1);
@@ -97,7 +98,7 @@ int write_int(buffer *buf, va_list v_ls)
 void append_num(buffer *buf, unsigned int num)
 {
 	if (num == 0)
-	return;
+		return;
 
 	buf_wr(buf);
 	append_num(buf, num / 10);
