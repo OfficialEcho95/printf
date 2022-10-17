@@ -4,15 +4,14 @@
  * opid - scans src string for an operator.
  * @v_ls: list for variadic arguments
  * @buf: pointer to a buffer
- *
  * @src: String in which to scan for the operator.
  * @src_i: the index that the '%' was found at
+ *
  * Return: a count
  */
 int opid(buffer *buf, va_list v_ls, const char *src, int src_i)
 {
 	int j, k, fin = 0;
-
 	prtOp oArray[] = {
 		{"c", write_char}, {"s", write_str},
 		{"%", write_mod}, {"d", write_int},
@@ -28,7 +27,7 @@ int opid(buffer *buf, va_list v_ls, const char *src, int src_i)
 		{
 			if (src[j + src_i] == *(oArray[k].op))
 			{
-																									/* this if/else block is temporary for testing*/
+				/* this if/else block is temporary for testing*/
 				if (oArray[k].fn != NULL)
 					fin = oArray[k].fn(buf, v_ls);
 				else
@@ -49,5 +48,5 @@ int opid(buffer *buf, va_list v_ls, const char *src, int src_i)
 		buf->str[buf->index] = src[src_i + j];
 		return (-1);
 	}
-		return (j);
+	return (j);
 }

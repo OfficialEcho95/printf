@@ -16,6 +16,7 @@ buffer *buf_new()
 	buf->size = 1024;
 	buf->overflow = 0;
 	buf->str = malloc(sizeof(char) * buf->size + 1);
+
 	return (buf);
 }
 /**
@@ -35,6 +36,7 @@ buffer *buf_custom(size_t size_uint)
 	buf->size = size_uint;
 	buf->overflow = 0;
 	buf->str = malloc(sizeof(char) * buf->size + 1);
+
 	return (buf);
 }
 /**
